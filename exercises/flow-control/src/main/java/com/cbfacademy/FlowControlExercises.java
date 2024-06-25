@@ -8,14 +8,78 @@ public class FlowControlExercises {
 
     public List<String> fizzBuzz(List<Integer> numbers) {
         // TODO - Implement this method such that
-        //  it creates a list where for each element of the input list ${numbers}
+        //  it creates a list where for each element of the input list ${numbers}     
         //  - if the ${element} is divisible by 3, it adds “Fizz” to the list
         //  - if the ${element} is divisible by 5, it adds “Buzz” to the list
         //  - if the ${element} is divisible by both 3 and 5, it adds “FizzBuzz” to the list
         //  - it adds the element to the list in any other case
         //  - it returns the constructed list
-        throw new RuntimeException("Not implemented");
+
+        List<String> result = new ArrayList <String>();
+
+        for (int i=0; i<numbers.size(); i++) {
+            if (numbers.get(i) % 3 == 0 && numbers.get(i) % 5 == 0) {
+                result.add("FizzBuzz");
+            }  
+
+            else if (numbers.get(i) % 3 == 0) {
+                result.add("Fizz");
+            }
+
+            else if (numbers.get(i) % 5 == 0){
+                result.add("Buzz");
+            }  
+
+            else {
+                 result.add(numbers.get(i).toString());            
+            }            
+            
+            // else (numbers.get(i) % 3 != 0 && numbers.get(i) % 5 != 0) {
+            //     result.add(numbers.get(i).toString());            
+            // }  
+        }              
+        
+        return result;
     }
+
+    // public List<String> fizzBuzz(List<Integer> numbers) {
+    //     //  it creates a list where for each element of the input list ${numbers}
+    //     List<String> result = new ArrayList<>();
+        
+    //     for (int i = 0; i < numbers.size(); i++) {
+    //         if (numbers.get(i) % 3 == 0 && numbers.get(i) % 5 == 0) {
+    //             result.add("FizzBuzz");
+    //         } else if (numbers.get(i) % 3 == 0) {
+    //             result.add("Fizz");
+    //         } else if (numbers.get(i) % 5 == 0) {
+    //             result.add("Buzz");
+    //         } else {
+    //             result.add(numbers.get(i).toString());
+    //         }
+    //     }
+
+    //     return result;
+    // }
+
+    // Compared to alternative solution using .forEach() with the lambda syntax:
+    // public List<String> fizzBuzz(List<Integer> numbers) {
+    //     List<String> strings = new ArrayList<String>();
+
+    //     numbers.forEach(number -> {
+    //         if (number % 5 == 0 && number % 3 == 0) {
+    //             strings.add("FizzBuzz");
+    //         } else if (number % 3 == 0) {
+    //             strings.add("Fizz");
+    //         } else if (number % 5 == 0) {
+    //             strings.add("Buzz");
+    //         } else {
+    //             strings.add(number.toString());
+    //         }
+    //     });
+
+    //     return strings;
+
+    // }
 
     public String whichMonth(Integer number) {
         // TODO - Implement this method such that
