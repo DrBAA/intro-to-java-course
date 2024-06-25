@@ -21,7 +21,7 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <configuration>
             <testExcludes>
-              <testExclude>**/BankTest.java</testExclude>
+              <!-- <testExclude>**/BankTest.java</testExclude> -->
               <!-- <testExclude>**/CurrentAccountTest.java</testExclude> -->
               <!-- <testExclude>**/SavingsAccountTest.java</testExclude> -->
             </testExcludes>
@@ -30,5 +30,4 @@
       </plugins>
     </pluginManagement>
   </build>
-
 </project>
