@@ -21,7 +21,7 @@ public class BinarySearchTest {
 
     @BeforeEach
     public void setUp() {
-        binarySearch = new Search();
+        binarySearch = new BinarySearch();
         Arrays.setAll(testArray, position -> position + 1);
     }
 

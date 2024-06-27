@@ -5,8 +5,8 @@ public class BinarySearch implements Search {
     @Override
     public int search(int[] sortedArray, int target) {
 
-        int low = sortedArray[0];
-        int high = sortedArray[sortedArray.length-1];
+        int low = 0;
+        int high = sortedArray.length-1;
         int mid = (low+high)/2;
         
         if(target == sortedArray[mid]){
