@@ -2,6 +2,7 @@ package com.cbfacademy;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -98,11 +99,41 @@ public class CollectionsAssignment {
      */
     public static ArrayList<Integer> inBoth(Collection<Integer> ints1, Collection<Integer> ints2) {
         // This must be done with no loops.
-        Set<Integer> combinedSet = new HashSet<>();
-        combinedSet.addAll(ints1);
-        combinedSet.addAll(ints2);
-        List<Integer> combinedList = new ArrayList<>(combinedSet);          
-        return new ArrayList<>();
+
+       /* To solve this problem without using loops,
+        We create two HashSet objects (set1 and set2), based on the contents of the ints1 and ints2 lists, to store unique elements from ints1 and ints2.
+        set1 is initialized with the elements from ints1.
+        set2 is initialized with the elements from ints2.
+        During initialization, the HashSet constructor automatically ensures uniqueness by discarding duplicate values.
+        The hash table (internal data structure) of each HashSet stores only distinct elements.
+        Any duplicate values in the original lists are effectively removed.
+        For example if we have the following lists
+        List<Integer> ints1 = List.of(2, 1, 2, 3);
+        List<Integer> ints2 = List.of(3, 4, 4, 5);
+        After creating the HashSet objects:
+        set1 contains {1, 2, 3} (no duplicates).
+        set2 contains {3, 4, 5} (no duplicates).
+        */
+
+        Set<Integer> set1 = new HashSet<>(ints1); // 1, 2, 3
+        Set<Integer> set2 = new HashSet<>(ints2); // 3, 4, 5
+
+        // We use retainAll to find the intersection of the two sets (i.e., common elements).
+        // The retainAll() method is used to retain only the elements that are common between two sets (or collections). 
+        set1.retainAll(set2); // intersection of sets
+
+        // we convert the result back to an ArrayList 
+        // List<Integer> result = new ArrayList<>(set1); // will need typecasting when returning the results
+        ArrayList<Integer> result = new ArrayList<>(set1);
+        
+        // we sort the ArrayList
+//        result.sort(null); // sort the result 
+        Collections.sort(result); 
+        
+        // we print the sorted ArrayList
+//        return (ArrayList<Integer>) result; // type casting if using List interface to create the ArrayList as in line 126 above
+        return result; // When you use return result;, the compiler checks if the return type matches the declared return type  on the method (ArrayList<Integer>). if it doesnt match, typecasting will be needed.
+
     }
 
     /**
@@ -128,12 +159,12 @@ public class CollectionsAssignment {
 
         Map<String, Integer> frequencyMap = new HashMap<>();
 
-        // Count the occurrences of each string
+        // iterate through the list to count occurrences of each String.
         for (String str : list) {
             frequencyMap.put(str, frequencyMap.getOrDefault(str, 0) + 1);
         }
 
-        // Find the maximum frequency
+        // iterate through the counts to find the maximum frequency
 
         int maxFrequency = 0;
         String mostFrequentString = null;

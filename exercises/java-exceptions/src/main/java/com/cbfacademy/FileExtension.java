@@ -4,12 +4,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+// Create a class called FileExtension with the following methods:
+
+// boolean check(String filename)
+// Map<String, int> map(List<String> filenames)
+
 public class FileExtension {
+
     /**
-     * Checks a filename to verify if it has a .java extension
+     * The check method checks a filename to verify if it has a .java extension
      * @param filename
      * @return true if the filename extension is .java; otherwise false
-     * @throws FilenameException
+     * @throws FilenameException when the file name is null or an empty string.
      */
     public boolean check(String filename) throws FilenameException {
         if (filename == null || filename.isEmpty()) {
@@ -27,6 +33,20 @@ public class FileExtension {
         return false;
     }
 
+
+    /*the below method should
+    check each provided file's extension and map the returned value as 1 if true or 0 if false
+map -1 when an exception occurs */
+
+/* Example
+
+For the following list of file names: Arrays.asList("App.java", "App.txt", null, "App.md"), the map method should return a map with the following entries:
+
+{"App.java", 1},
+{"App.txt", 0},
+{null, -1},
+{"App.md", 0}
+*/
     public Map<String, Integer> map(List<String> filenames) {
         Map<String, Integer> resultMap = new HashMap<>();
 
