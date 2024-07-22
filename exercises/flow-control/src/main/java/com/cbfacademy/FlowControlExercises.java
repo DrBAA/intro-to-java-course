@@ -1,8 +1,11 @@
 package com.cbfacademy;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class FlowControlExercises {
 
@@ -91,18 +94,61 @@ public class FlowControlExercises {
     public Map<String, Integer> sumOfOddsAndSumOfEvens() {
         // TODO - Implement this method such that
         //  - creates and initialises a list of 100 numbers - from 1 to 100
+        List<Integer> numberList = new ArrayList<>(100);
+        // Initialize the list with numbers from 1 to 100
+
+        for (int i = 1; i <= 100; i++) {
+            numberList.add(i);
+        }  
+
         //  - determines the sum of all the even numbers in the list
         //  - determines the sum of all the odd numbers in the list
+
+        int sumOfEvens = 0;
+        int sumOfOdds = 0;     
+        for (int number : numberList){    
+            if (number % 2 == 0){
+                sumOfEvens += number;
+            }        
+            else 
+            {     
+                sumOfOdds += number;
+            }
+
+        }    
+
         //  - returns a map with two entries:
         //      {"SumOfEvens", calculatedSumOfEvens}, {"SumOfOdds", calculatedSumOfOdds}
-        throw new RuntimeException("Not implemented");
+        Map<String, Integer> resultMap = new TreeMap<>();
+        resultMap.put("SumOfEvens", sumOfEvens);
+        resultMap.put("SumOfOdds", sumOfOdds);  
+        
+        return resultMap;
+
+//        throw new RuntimeException("Not implemented");
     }
 
     public List<Integer> reverse(ArrayList<Integer> numbers) {
         // TODO - Implement this method such that
         //  - it takes an array list of integers
+        List<Integer> arrayList = new ArrayList<>(numbers);
+    //    arrayList.add(10);
+        // arrayList.add(1);
+        // arrayList.add(15);
+        // arrayList.add(5);
+        // arrayList.add(3);
+        // arrayList.add(25);
+        // arrayList.add(99);
+
         //  - it returns the list in reverse order
-        throw new RuntimeException("Not implemented");
+        
+        //        arrayList.sort(Comparator.reverseOrder());
+        Collections.reverse(arrayList);
+
+        return arrayList;
+
+       // throw new RuntimeException("Not implemented");
+
     }
 
     public String getName() {
