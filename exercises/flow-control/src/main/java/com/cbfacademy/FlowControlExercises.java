@@ -88,7 +88,62 @@ public class FlowControlExercises {
         // TODO - Implement this method such that
         //  - it returns the month corresponding to the input ${number}
         //  - if the ${number} is invalid, the method should return "Invalid month number"
-        throw new RuntimeException("Not implemented");
+
+        // EXAMPLE 1 - USING AN ARRAY PLUS AN IF AND ELSE STATEMENT - WORKS
+        // In this example
+        // We create an array months where each index corresponds to a month (index 0 is not used).
+        // If the input number is within the valid range (1 to 12), we return the corresponding month name.
+        // Otherwise, we return “Invalid month number”.
+        // Input: whichMonth(3) Output: March
+        // Input: whichMonth(13) Output: Invalid month number
+        String[] months = {
+            null, // Index 0 is not used
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        };
+    
+        if (number >= 1 && number <= 12) {
+            return months[number];
+        } else {
+            return "Invalid month number";
+        }
+
+
+        // USING  A SWITCH CASE STATEMENT - ALSO WORKS
+        // In this example:
+        // We use a switch statement to handle each possible input value.
+        // If the input number matches one of the cases (1 to 12), we return the corresponding month name.
+        // Otherwise, we return “Invalid month number”.
+/*
+        switch (number) {
+            case 1:
+                return "January";
+            case 2:
+                return "February";
+            case 3:
+                return "March";
+            case 4:
+                return "April";
+            case 5:
+                return "May";
+            case 6:
+                return "June";
+            case 7:
+                return "July";
+            case 8:
+                return "August";
+            case 9:
+                return "September";
+            case 10:
+                return "October";
+            case 11:
+                return "November";
+            case 12:
+                return "December";
+            default:
+                return "Invalid month number";
+        }
+*/                
     }
 
     public Map<String, Integer> sumOfOddsAndSumOfEvens() {
