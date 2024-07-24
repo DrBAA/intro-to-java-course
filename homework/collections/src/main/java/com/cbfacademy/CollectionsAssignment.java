@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collector;
+import java.util.*;//stream.Collectors;
+
 
 
 public class CollectionsAssignment {
@@ -25,6 +28,8 @@ public class CollectionsAssignment {
      * @param minValue the minimum value to retain
      */
     public static void removeSmallInts(List<Integer> list, int minValue) {        
+              
+        
         // Your solution must traverse the list from last to first element
         // removing any values less than minValue.
             // for (int i = list.size()-1; i>=0; i--){
@@ -39,7 +44,7 @@ public class CollectionsAssignment {
                 if (currentValue < minValue) {
                     listIter.remove();
                 }
-            } 
+            }
 
     }
 
@@ -50,13 +55,15 @@ public class CollectionsAssignment {
      */
     public static boolean containsDuplicates(Collection<Integer> integers) {
         // Your solution must not use any loops.
-        if (integers==null) {
-            return false;
+        Set <Integer> uniqueElements = new HashSet<>();
+        for (Integer element : integers) {
+            if (!uniqueElements.add(element)){
+                return true;  // duplicate found              
+            }
         }
-        else
-        {   return true;
 
-        }
+        return false; // No duplicates found
+
     }
 
     /**
@@ -75,12 +82,13 @@ public class CollectionsAssignment {
      * collection.
      */
     public static ArrayList<Integer> inEither(Collection<Integer> ints1, Collection<Integer> ints2) {
-        // This must be done with no loops.
-        // Set<Integer> combinedSet = new HashSet<>();
-        // combinedSet.addAll(ints1);
-        // combinedSet.addAll(ints2);
-        // List<Integer> combinedList = new ArrayList<>(combinedSet);     
-        return new ArrayList<Integer>();
+//        This must be done with no loops.
+        Set<Integer> combinedSet = new HashSet<>(ints1);
+        combinedSet.addAll(ints2);
+
+        ArrayList<Integer> sortedList = new ArrayList<>(combinedSet);
+        Collections.sort(sortedList);
+        return sortedList;
     }
     
 
@@ -131,7 +139,7 @@ public class CollectionsAssignment {
         Collections.sort(result); 
         
         // we print the sorted ArrayList
-//        return (ArrayList<Integer>) result; // type casting if using List interface to create the ArrayList as in line 126 above
+//        return (ArrayList<Integer>) result; // type casting if using List interface to create the ArrayList as in line 128 above
         return result; // When you use return result;, the compiler checks if the return type matches the declared return type  on the method (ArrayList<Integer>). if it doesnt match, typecasting will be needed.
 
     }
