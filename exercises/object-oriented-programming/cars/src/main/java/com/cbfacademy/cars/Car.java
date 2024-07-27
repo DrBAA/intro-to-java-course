@@ -21,6 +21,10 @@ public class Car {
         return model;
     }
 
+    public int getYear() {
+        return year;
+    }
+
     public String getColour() {
         return colour;
     }
@@ -29,9 +33,6 @@ public class Car {
         this.colour = colour;
     }
 
-    public int getYear() {
-        return year;
-    }
 
     public String getDetails() {
         return String.format("%s %s %s (%d)", make, model, colour, year);
