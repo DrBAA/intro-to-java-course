@@ -36,15 +36,24 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Hello World!");
 
-        int number1 = 12;
-        int number2 = 12;
+        App.unary();
+        System.out.println(App.add(25, 50));
+        System.out.println(App.subtract(30, 3));
+        System.out.println(App.areEqual(35,50));
+        System.out.println(App.isMoreThan(10, 20));
+        System.out.println(App.isLessThan(10, 50));
+
+
+//         int number1 = 12;
+//         int number2 = 12;
         
-        System.out.println("number1++ = " + number1++); // 12 - does the addition but does not print it out
-        System.out.println(number1); // prints 13
-//        System.out.println("+number1 = " + +number1); // 12
-        // System.out.println("++number1 = " + ++number1); // 13        
-        // System.out.println("-number2 = " + -number2); // -12
-        // System.out.println("--number2 = " + --number2); // 11
+// //        System.out.println("number1++ = " + number1++); // 12 - does the addition but does not print it out
+//         System.out.println(number1++); // prints 13
+//         System.out.println(++number2); // prints 14
+// //        System.out.println("+number1 = " + +number1); // 12
+//         // System.out.println("++number1 = " + ++number1); // 13        
+//         // System.out.println("-number2 = " + -number2); // -12
+//         // System.out.println("--number2 = " + --number2); // 11
 
     }
 
@@ -83,8 +92,8 @@ public class App {
     int number1 = 12;
     int number2 = 12;
     
-    System.out.println(number1++); // 14
-    System.out.println(++number2); // ++12
+    System.out.println(number1++); // 12 - does the addition but does not print it out
+    System.out.println(++number2); // 13 - adds 1 to number 2
 
     }
     
