@@ -1,6 +1,8 @@
 package com.cbfacademy;
 
-public class DicePlayer {
+// Modify the DiceGame class to implement the Game interface and the DicePlayer class to implement the Player interface.
+
+public class DicePlayer implements Player {
     private String name;
 
     public String getName() {

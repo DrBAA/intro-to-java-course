@@ -1,8 +1,13 @@
 package com.cbfacademy;
 
-public class DiceGame {
-    private DicePlayer player1;
-    private DicePlayer player2;
+// Modify the DiceGame class to implement the Game interface and the DicePlayer class to implement the Player interface.
+
+public class DiceGame implements Game {
+    // Modify the player1 and player2 members in DiceGame to be of type Player rather than DicePlayer.    
+    // private DicePlayer player1;
+    // private DicePlayer player2;    
+    private Player player1;
+    private Player player2;
     private int targetScore = 30;
 
     public DiceGame() {

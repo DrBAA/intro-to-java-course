@@ -3,8 +3,10 @@ package com.cbfacademy;
 public class App {
     public static void main(String[] args) {
         // inversion of control. Replace the new DiceGame() statement in App with GameFactory.create();  
-//        DiceGame game = new DiceGame();                 
-        DiceGame game = GameFactory.create();
+//        DiceGame game = new DiceGame();  
+ // Modify the game member in App to be of type Game rather than DiceGame.              
+        // DiceGame game = GameFactory.create();
+        Game game = GameFactory.create();
         String winner = game.play();
 
         if (winner == null) {
