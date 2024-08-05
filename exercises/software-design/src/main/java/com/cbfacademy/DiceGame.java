@@ -6,6 +6,8 @@ public class DiceGame {
     private int targetScore = 30;
 
     public DiceGame() {
+        // inversion of control. Replace the new DicePlayer() statements in DiceGame with PlayerFactory.create()
+//        player1 = new DicePlayer();        
         player1 = PlayerFactory.create();
         player2 = PlayerFactory.create();
         player1.setName("Player 1");
@@ -35,3 +37,5 @@ public class DiceGame {
         return winner;
     }
 }
+
+// This delegated responsibility to the factory allows us to decouple the DiceGame class from the DicePlayer class.
