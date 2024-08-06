@@ -10,13 +10,23 @@ public class DiceGame implements Game {
     private Player player2;
     private int targetScore = 30;
 
+    // default constructor to initialize the Player instances internally.
     public DiceGame() {
+        this(PlayerFactory.create(), PlayerFactory.create());
+    }
+// We have now inverted control and introduced abstraction, but our classes are still tightly coupled to the factory classes. Let's resolve this by instead injecting dependencies into the constructor of the DiceGame class.
+    // Modify the DiceGame constructor to accept two Player instances.
+    // public DiceGame() {    
+    public DiceGame(Player player1, Player player2) {
+         this.player1 = player1;
+         this.player2 = player2;
         // inversion of control. Replace the new DicePlayer() statements in DiceGame with PlayerFactory.create()
-//        player1 = new DicePlayer();        
-        player1 = PlayerFactory.create();
-        player2 = PlayerFactory.create();
-        player1.setName("Player 1");
-        player2.setName("Player 2");
+//        player1 = new DicePlayer(); 
+
+        this.player1 = PlayerFactory.create();
+        this.player2 = PlayerFactory.create();
+        this.player1.setName("Player 1");
+        this.player2.setName("Player 2");
     }
 
     public String play() {
@@ -43,4 +53,19 @@ public class DiceGame implements Game {
     }
 }
 
-// This delegated responsibility to the factory allows us to decouple the DiceGame class from the DicePlayer class.
+// The above delegated responsibility to the factory allows us to decouple the DiceGame class from the DicePlayer class.
+
+// In the above code, I modified the DiceGame constuctor to accept two Player instances as shown on line 20 above. However, after modifying the code, I was getting an error on the return statement of the GameFactory class saying the constructor DiceGame() is undefined.
+// To resolve this problem without changing the GameFactory class,  Copilot suggested for me to add a default constructor,  to the DiceGame class that initializes the Player instances internally. Therefore I have added the default constructor as shown on line 14 above. i.e. 
+/*public DiceGame() {
+    this(PlayerFactory.create(), PlayerFactory.create());
+} */
+// the error on the GameFactory class is now resolved.
+
+// why do we need 2 constructors on the same class?
+// Copilot explained that:
+// Having two constructors in the same class, known as constructor overloading, provides flexibility in how objects of that class can be created. In this case:
+
+// Default Constructor: This allows the GameFactory class to create a DiceGame instance without needing to pass Player instances. It internally creates the Player instances using PlayerFactory.
+// Parameterized Constructor: This allows for more control when creating a DiceGame instance, enabling you to pass specific Player instances. This is useful when you want to customize the players or use existing player objects.
+// By providing both constructors, you can accommodate different use cases without changing the existing code structure.
