@@ -11,22 +11,24 @@ public class DiceGame implements Game {
     private int targetScore = 30;
 
     // default constructor to initialize the Player instances internally.
-    public DiceGame() {
-        this(PlayerFactory.create(), PlayerFactory.create());
-    }
+    // public DiceGame() {
+    //     this(PlayerFactory.create(), PlayerFactory.create());
+    // }
 // We have now inverted control and introduced abstraction, but our classes are still tightly coupled to the factory classes. Let's resolve this by instead injecting dependencies into the constructor of the DiceGame class.
     // Modify the DiceGame constructor to accept two Player instances.
-    // public DiceGame() {    
+    // public DiceGame() { 
+    // The DiceGame constructor now directly accepts Player objects, ensuring dependency injection.   
     public DiceGame(Player player1, Player player2) {
          this.player1 = player1;
          this.player2 = player2;
         // inversion of control. Replace the new DicePlayer() statements in DiceGame with PlayerFactory.create()
 //        player1 = new DicePlayer(); 
 
-        this.player1 = PlayerFactory.create();
-        this.player2 = PlayerFactory.create();
-        this.player1.setName("Player 1");
-        this.player2.setName("Player 2");
+// below code might not be needed as the objects will be created by GameFactory which will pass them to DiceGame's constructor
+        // this.player1 = PlayerFactory.create();
+        // this.player2 = PlayerFactory.create();
+        // this.player1.setName("Player 1");
+        // this.player2.setName("Player 2");
     }
 
     public String play() {
