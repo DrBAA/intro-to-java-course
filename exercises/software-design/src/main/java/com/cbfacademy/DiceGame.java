@@ -27,8 +27,8 @@ public class DiceGame implements Game {
 // below code might not be needed as the objects will be created by GameFactory which will pass them to DiceGame's constructor
         // this.player1 = PlayerFactory.create();
         // this.player2 = PlayerFactory.create();
-        // this.player1.setName("Player 1");
-        // this.player2.setName("Player 2");
+        this.player1.setName("Player 1");
+        this.player2.setName("Player 2");
     }
 
     public String play() {
