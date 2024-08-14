@@ -16,10 +16,12 @@ public class GameFactory {
     // }
 
 // The GameFactory.create() method creates Player instances using PlayerFactory.create() and passes them to the DiceGame constructor
-    public static Game create() {
-        Player player1 = PlayerFactory.create();
-        Player player2 = PlayerFactory.create();
+// Modify the GameFactory.create() method to accept two Player parameters and inject them into the DiceGame constructor
+    public static Game create(Player player1, Player player2) {
+        // Player player1 = PlayerFactory.create();
+        // Player player2 = PlayerFactory.create();
         // This line injects the Player objects into the DiceGame constructor
+        // return new DiceGame(player1, player2);
         return new DiceGame(player1, player2);
     }
 
