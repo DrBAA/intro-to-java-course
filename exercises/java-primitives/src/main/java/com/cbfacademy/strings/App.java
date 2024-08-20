@@ -48,6 +48,5 @@ public class App {
     public static String format(String item, int quantity, double price) {
         return String.format("Item: %s. Price: £%.2f. Quantity: %d",item,price,quantity);
     }
-
 }
 
