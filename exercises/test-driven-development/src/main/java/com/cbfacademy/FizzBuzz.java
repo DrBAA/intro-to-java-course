@@ -22,7 +22,8 @@ public class FizzBuzz {
         }         
 
         else {
-            return String.valueOf(num);
+            // String.valueOf() method converts the integer num to its string representation. For example, if num is 4, String.valueOf(num) will return "4" as a string.
+            return String.valueOf(num); 
         }
 
     }
