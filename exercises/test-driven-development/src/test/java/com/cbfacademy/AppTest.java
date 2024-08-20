@@ -42,9 +42,10 @@ public class AppTest {
 
 
     @Test
-    @DisplayName("prints the number itself in a string format if the number is not divisible by 3 or 5")
+    @DisplayName("prints the number itself in a string format if the number is not a multiple of 3, 5 or 15")
     public void printsNumber() {
         assertEquals("4", FizzBuzz.get(4));
     }
 
 }
+
